@@ -1,3 +1,5 @@
-all: $(wildcard *.py) ;python -B LSViewer.py trees/sample_tree1.txt
+SRC=$(wildcard *.py) 
+ARG=trees/sample_tree1.txt
+all: $(SRC);python -B $< $(ARG)
 
 %.py:

@@ -67,7 +67,8 @@ class A3Canvas:
 
 		ls_string = self.L_system.generate_system_string(self.LS_iterations)
 		print "Drawing with %d iterations."%(self.LS_iterations)
-		print "System string: %s"%ls_string
+		print "System rules" + str({i.rule:i.substitution for i in self.L_system.rules})
+		print "System string: %s"%self.L_system.axiom
 
 		sdl2.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		sdl2.SDL_RenderClear(renderer);
@@ -77,8 +78,8 @@ class A3Canvas:
 		viewportTransform *= Translation(self.CANVAS_SIZE_X/2,self.CANVAS_SIZE_Y)
 		viewportTransform *= Scale(1,-1)
 		viewportTransform *= Scale(self.CANVAS_SIZE_X/100.0,self.CANVAS_SIZE_Y/100.0)
-                # my code goes here?		
-                viewportTransform *= Scale(2, 2)
+    # my code goes here?		
+		viewportTransform *= Scale(2, 2)
 		tr.set_transform(viewportTransform)
 		
 		self.draw_leaf(tr)
