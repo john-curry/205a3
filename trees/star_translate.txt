@@ -1,0 +1,2 @@
+rrt
+t = tr[-rt][+rt]
